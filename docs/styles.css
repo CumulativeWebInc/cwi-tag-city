@@ -1,0 +1,164 @@
+/* TAG CITY — styles. Portrait-first, full-screen, no letterbox.
+   §9 cites: §6 (HUD panel language, minimap, circular buttons, banners),
+   §1 rule 5 (black space between elements). No continuous UI scaling (§7.8)
+   — only discrete pop steps on combo tier-up. */
+:root {
+  --cyan: #00E5FF; --cyan-deep: #0E5F73;
+  --mag: #FF2FB3; --mag-deep: #8A2360;
+  --gold: #FFD166; --gold-deep: #8A5F1C;
+  --red: #FF3B4E; --white: #EEF0FF; --dim: #9AA0C3;
+  --void: #0A0A12; --panel: rgba(18,18,30,0.88);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; overflow: hidden; background: #000; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--white);
+  overscroll-behavior: none;
+}
+#stage {
+  position: fixed; inset: 0;
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+#stage canvas.tc-layer {
+  position: absolute; inset: 0; margin: auto;
+  /* logical stage is 540x960; canvases are centered and sized by JS — the
+     black outside the stage is art-bible §1 rule 5 void, never letterbox
+     inside the stage */
+}
+#l-bg { z-index: 1; } #l-par { z-index: 2; } #l-ent { z-index: 3; } #l-vfx { z-index: 4; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
+.tc-hud { position: absolute; inset: 0; }
+
+.tc-logo { position: absolute; top: 6px; left: 8px; width: 112px; height: 49px; }
+
+.tc-panel {
+  position: absolute; background: var(--panel); border: 2px solid var(--cyan);
+  border-radius: 8px; padding: 6px 10px;
+}
+.tc-panel.tc-gold { border-color: var(--gold); }
+.tc-panel.tc-cyan { border-color: var(--cyan); }
+.tc-label { font-size: 10px; letter-spacing: 2px; color: var(--dim); }
+.tc-score {
+  font-size: 26px; color: var(--gold); font-variant-numeric: tabular-nums;
+  font-weight: 800; text-shadow: 0 0 12px var(--gold-deep);
+}
+.tc-time { font-size: 13px; color: var(--white); font-variant-numeric: tabular-nums; }
+.tc-panel.tc-gold { top: 64px; left: 8px; min-width: 128px; }
+.tc-credits { top: 150px; }
+.tc-credits-num { font-size: 19px; color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
+.tc-obj { top: 236px; left: 8px; min-width: 170px; }
+.tc-obj-tags { font-size: 14px; color: var(--cyan); font-weight: 700; }
+.tc-wanted { font-size: 22px; color: var(--red); letter-spacing: 4px; margin-top: 2px; }
+
+.tc-combo { position: absolute; top: 96px; right: 8px; text-align: center; }
+.tc-combo-num { font-size: 34px; color: var(--mag); font-weight: 900; text-shadow: 0 0 14px var(--mag-deep); }
+.tc-combo-mult { font-size: 12px; color: var(--mag); letter-spacing: 1px; }
+/* discrete pop steps only — no continuous scaling (§7.8) */
+.tc-combo.tc-pop0 .tc-combo-num { transform: scale(1); }
+.tc-combo.tc-pop1 .tc-combo-num { transform: scale(1.14); }
+.tc-combo.tc-pop2 .tc-combo-num { transform: scale(1.3); }
+.tc-combo-num { display: inline-block; transition: transform 0.12s; }
+
+.tc-paint { top: 236px; right: 8px; text-align: center; }
+.tc-paint-wrap {
+  width: 46px; height: 200px; margin: 4px auto 0; border: 2px solid var(--mag);
+  border-radius: 6px; position: relative; overflow: hidden; background: #12060e;
+}
+.tc-paint-fill {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+  background: linear-gradient(to top, var(--mag-deep), var(--mag), var(--cyan));
+}
+.tc-paint-pct { font-size: 13px; color: var(--mag); font-weight: 700; margin-top: 4px; }
+
+.tc-panel.tc-mapw { bottom: 208px; right: 8px; padding: 4px; }
+.tc-map { display: block; width: 104px; height: 104px; }
+
+.tc-btn {
+  position: absolute; border-radius: 50%; pointer-events: auto;
+  font-weight: 900; border: 3px solid; background: var(--panel);
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.tc-spray { right: 16px; bottom: 96px; width: 104px; height: 104px; font-size: 15px;
+  border-color: var(--mag); color: var(--mag); }
+.tc-spray.held { background: rgba(242,29,185,0.35); }
+.tc-dash { right: 132px; bottom: 118px; width: 84px; height: 84px; font-size: 13px;
+  border-color: var(--gold); color: var(--gold); }
+.tc-pause { top: 6px; right: 8px; width: 46px; height: 46px; font-size: 15px;
+  border-color: var(--cyan); color: var(--cyan); }
+
+.tc-joy {
+  position: absolute; width: 120px; height: 120px; border-radius: 50%;
+  background: rgba(20,20,32,0.55); border: 2px solid rgba(40,242,242,0.5);
+  display: none; pointer-events: none; z-index: 11;
+}
+.tc-joy-knob {
+  position: absolute; left: 40px; top: 40px; width: 40px; height: 40px;
+  border-radius: 50%; background: rgba(40,242,242,0.25); color: var(--cyan);
+  font-size: 18px; line-height: 40px; text-align: center;
+}
+
+.tc-banner {
+  position: absolute; left: 50%; top: 38%; transform: translate(-50%,-50%);
+  padding: 12px 26px; border-radius: 10px; font-size: 20px; font-weight: 900;
+  display: none; text-align: center; pointer-events: none; z-index: 12;
+}
+.tc-alert { border: 3px dashed var(--red); color: var(--red); background: rgba(30,4,10,0.9);
+  animation: tc-blink 0.5s steps(2) infinite; }
+@keyframes tc-blink { 50% { opacity: 0.55; } }
+.tc-prize { border: 3px solid var(--gold); color: var(--gold); background: rgba(30,22,4,0.92);
+  text-shadow: 0 0 14px var(--gold-deep); }
+.tc-hint { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  font-size: 12px; letter-spacing: 2px; color: var(--dim); }
+.tc-fps { position: absolute; bottom: 12px; left: 8px; font-size: 10px; color: var(--dim);
+  font-variant-numeric: tabular-nums; }
+.tc-pop { position: absolute; transform: translate(-50%,-50%); font-weight: 900;
+  text-shadow: 0 2px 8px #000; white-space: nowrap; }
+
+/* ---- title screen ---- */
+.tc-title {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+  overflow-y: auto; pointer-events: auto; background: rgba(4,4,10,0.55); padding: 14px 10px 40px;
+}
+.tc-title-logo { width: 300px; height: 130px; margin-top: 8px; }
+.tc-tagline { letter-spacing: 4px; color: var(--cyan); font-size: 13px; margin: 2px 0 12px; }
+.tc-sect { font-size: 13px; letter-spacing: 3px; color: var(--gold); margin: 14px 0 6px; }
+.tc-roster { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.tc-card {
+  width: 128px; background: var(--panel); border: 2px solid var(--cyan); border-radius: 10px;
+  padding: 6px; text-align: center; pointer-events: auto; touch-action: manipulation;
+}
+.tc-card.sel { border-color: var(--gold); box-shadow: 0 0 14px var(--gold-deep); }
+.tc-card.locked { opacity: 0.72; border-style: dashed; }
+.tc-card-art { width: 116px; height: 120px; object-fit: contain; }
+.tc-card-name { font-size: 12px; font-weight: 900; color: var(--white); margin-top: 2px; }
+.tc-card-desc { font-size: 10px; color: var(--dim); min-height: 40px; }
+.tc-card-lock { font-size: 10px; color: var(--gold); font-weight: 700; min-height: 26px; }
+.tc-card.locked .tc-card-lock { color: var(--dim); }
+.tc-locs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.tc-track { margin-top: 14px; font-size: 12px; color: var(--cyan); text-align: center; padding: 0 12px; }
+.tc-start {
+  margin-top: 16px; padding: 16px 52px; font-size: 22px; font-weight: 900; letter-spacing: 2px;
+  background: var(--panel); border: 3px solid var(--gold); color: var(--gold); border-radius: 12px;
+  pointer-events: auto; touch-action: manipulation;
+}
+.tc-controls { margin-top: 14px; font-size: 11px; color: var(--dim); letter-spacing: 1px; text-align: center; }
+
+/* ---- busted / paused ---- */
+.tc-busted, .tc-paused {
+  position: absolute; inset: 0; display: none; flex-direction: column; align-items: center;
+  justify-content: center; background: rgba(10,2,6,0.88); pointer-events: auto; z-index: 20;
+}
+.tc-busted-title { font-size: 64px; font-weight: 900; color: var(--red); letter-spacing: 6px; }
+.tc-busted-sub { font-size: 14px; color: var(--dim); letter-spacing: 3px; margin-bottom: 18px; }
+.tc-busted-score { font-size: 42px; color: var(--gold); font-weight: 900; font-variant-numeric: tabular-nums; }
+.tc-busted-tags { font-size: 16px; color: var(--cyan); margin-top: 8px; letter-spacing: 2px; }
+.tc-busted-earn { font-size: 20px; color: var(--gold); margin-top: 6px; font-weight: 800; }
+.tc-paused-title { font-size: 40px; font-weight: 900; color: var(--cyan); letter-spacing: 6px; margin-bottom: 12px; }
+.tc-mute { margin-top: 10px; font-size: 16px; padding: 10px 30px; }
+
+@media (max-height: 700px) {
+  .tc-paint-wrap { height: 130px; }
+  .tc-panel.tc-mapw { display: none; }
+}

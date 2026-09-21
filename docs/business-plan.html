@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAG CITY — Production Business Plan</title>
+<style>
+  :root{--cyan:#00E5FF;--magenta:#FF2FB3;--gold:#FFD166;--red:#FF3B4E;--bg:#0A0A12;--panel:#12121E;--ink:#EEF0FF;--dim:#9AA0C3;--line:#23232E;}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;margin:0;line-height:1.6}
+  header.hero{padding:64px 24px 40px;text-align:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 50% -10%,rgba(0,229,255,.12),transparent 60%),radial-gradient(ellipse at 85% 110%,rgba(255,47,179,.10),transparent 55%)}
+  .kicker{color:var(--cyan);letter-spacing:.35em;font-size:12px;text-transform:uppercase}
+  h1{font-size:clamp(40px,8vw,84px);margin:.2em 0;line-height:1;letter-spacing:-.01em}
+  h1 .tc-c{color:var(--cyan)} h1 .tc-m{color:var(--magenta)}
+  .sub{color:var(--dim);max-width:760px;margin:0 auto}
+  .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .badge{border:1px solid var(--cyan);color:var(--cyan);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.08em}
+  .badge.gold{border-color:var(--gold);color:var(--gold)}
+  main{max-width:980px;margin:0 auto;padding:24px}
+  section{margin:56px 0}
+  h2{font-size:28px;border-left:4px solid var(--cyan);padding-left:14px;margin-bottom:6px}
+  h2 .num{color:var(--cyan)}
+  h3{color:var(--magenta);margin-top:28px}
+  .lede{color:var(--dim);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+  .card.gold{border-color:var(--gold)} .card.cyan{border-color:var(--cyan)} .card.pink{border-color:var(--magenta)} .card.red{border-color:var(--red)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--cyan);text-transform:uppercase;font-size:11px;letter-spacing:.1em}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;padding:2px 10px;border-radius:999px;text-transform:uppercase}
+  .tag.ev{border:1px solid var(--cyan);color:var(--cyan)} .tag.un{border:1px solid var(--red);color:var(--red)}
+  .tag.gap{border:1px solid var(--gold);color:var(--gold)}
+  .kill{color:var(--red);font-weight:700} .gold-t{color:var(--gold);font-weight:700} .cyan-t{color:var(--cyan)}
+  ul{margin:8px 0} li{margin:6px 0}
+  blockquote{border-left:3px solid var(--gold);margin:16px 0;padding:8px 18px;color:var(--dim);font-style:italic}
+  .scene-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  code{background:#1a1a28;padding:2px 6px;border-radius:4px;font-size:13px}
+  footer{border-top:1px solid var(--line);padding:28px 24px;color:var(--dim);font-size:13px;text-align:center}
+  .toc{columns:2;max-width:760px;margin:18px auto;font-size:14px} .toc a{color:var(--cyan);text-decoration:none}
+  @media(max-width:640px){.toc{columns:1}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="kicker">Cumulative Web Inc · Agent Deck · Production Business Plan</div>
+  <h1><span class="tc-c">TAG</span> <span class="tc-m">CITY</span></h1>
+  <p class="sub">A graffiti-tag chase through the neon-noir surveillance city in That Boy Hi Hat's world. Stylized original characters only — never a real-person likeness. Production greenlit by Black; nothing proceeds without his say-so.</p>
+  <div class="badges">
+    <span class="badge">GATE REVIEW: GO</span>
+    <span class="badge">$0 BUILD</span>
+    <span class="badge gold">60FPS OR NOTHING-BUT-SOLVED</span>
+    <span class="badge">v1.0 · 2026-09-21</span>
+  </div>
+  <div class="toc">
+    <a href="#story">1 · Storyline + Storyboard</a><br>
+    <a href="#scenes">2 · Scene / Location Art Plan</a><br>
+    <a href="#gameplay">3 · Gameplay Loop</a><br>
+    <a href="#graphics">4 · Animation + Graphics Bible</a><br>
+    <a href="#economy">5 · Music / Prize / Credit Economy</a><br>
+    <a href="#money">6 · Money Trail</a><br>
+    <a href="#marketing">7 · Advertising + Marketing</a><br>
+    <a href="#lifecycle">8 · Lifecycle Timeline</a><br>
+    <a href="#checkpoints">9 · 50% / 75% Intervention Checkpoints</a><br>
+    <a href="#kills">10 · Numeric Kill Rules</a><br>
+    <a href="#perf">11 · Performance Plan + iPhone Gates</a><br>
+    <a href="#startup">12 · Startup Sequence</a><br>
+    <a href="#results">13 · Expected Results</a><br>
+    <a href="#minds">A · Twenty Minds Records</a> · <a href="#tradeoffs">B · Trade-off Tables</a> · <a href="#gaps">C · Honest Gaps</a>
+  </div>
+</header>
+<main>
+
+<section id="story">
+<h2><span class="num">1 ·</span> Storyline + Storyboard</h2>
+<p class="lede">TAG CITY's own story — the resistance tags the surveillance city. This is not SIGNAL RUN's story; nothing from it is carried over.</p>
+<div class="card cyan">
+<h3>The premise</h3>
+<p>The city runs on <strong>Sentinel-7</strong> — quad-rotor industry drones with red scan eyes that sweep the alleys, reading walls for unlicensed color. The industry paints everything grey and calls it order. But color is evidence that someone was alive here. A crew of five anonymous artists — <strong class="cyan-t">THE ARTIST</strong>, <strong class="cyan-t">PRISM</strong>, <strong class="cyan-t">GHOST</strong>, <strong class="cyan-t">HEIR</strong>, <strong class="cyan-t">PIXEL</strong> — moves through the alley sectors at night, hitting wall after wall with neon murals before the drones' searchlight cones lock on. Every completed tag is a small act of proof: <em>we were here, and the city is ours tonight.</em></p>
+<p>All characters are masked, stylized originals (art-bible §10). The crew's faces are never shown — anyone can be the artist.</p>
+</div>
+<h3>Story beats (original)</h3>
+<table>
+<tr><th>Beat</th><th>What happens</th><th>Gameplay beat</th></tr>
+<tr><td><strong>1 · First Color</strong></td><td>The Artist hits a grey-brick wall on a dead alley. The mural blooms cyan and magenta — the city's first unsanctioned color of the night.</td><td>Tutorial: hold-to-spray tagging, wall-bloom reward (~0.5s grey→neon crossfade).</td></tr>
+<tr><td><strong>2 · The Crew</strong></td><td>PRISM answers with a precision piece two alleys over; the crew converges. Each artist tags in their own color story.</td><td>PRISM introduced as second playable (precision tagger, single-arm duelist pose).</td></tr>
+<tr><td><strong>3 · Sentinel-7 Wakes</strong></td><td>A patrol drone's eye brightens. Searchlight cones sweep the street. The crew learns to dodge the cone, not the drone.</td><td>Threat stages unlocked: patrol → suspicious → lock-on (§3 of the bible).</td></tr>
+<tr><td><strong>4 · The Chase</strong></td><td>Lock-on. Red vignette, alert frame, gold-rain near-miss rewards. The crew outruns the beam through NEON ROW.</td><td>Chase sequences with lunge strikes, near-miss bonuses, combo multipliers.</td></tr>
+<tr><td><strong>5 · The Crown District</strong></td><td>HEIR breaches the gold-trimmed heart of the surveillance grid — the industry's own sign language turned against it.</td><td>HEIR unlocked through progression; wide-cone canister sprayer.</td></tr>
+<tr><td><strong>6 · Ghost Protocol</strong></td><td>GHOST goes dark — a roller tag across the longest wall in the city, done so quietly the drones never see it.</td><td>GHOST unlocked; stealth lanes, low-neon run.</td></tr>
+<tr><td><strong>7 · The Signal Drop</strong></td><td>PIXEL's backpack screen flashes the drop: the crew's murals carry listening prizes — every player who runs the walls unlocks the music.</td><td>Credit economy + listening-gated streaming-link prizes go live (§5 below).</td></tr>
+<tr><td><strong>8 · Full Bloom</strong></td><td>The whole sector blooms. Grey walls are gone. The drones still fly — but tonight the city is louder than the scan.</td><td>Endgame: combo milestones, gold-rain prize events, crew roster complete.</td></tr>
+</table>
+<blockquote>"The drones surveil. The crew tags. Color is the resistance — not health, not decor. The wall is the canvas and the night is the gallery."</blockquote>
+</section>
+
+<section id="scenes">
+<h2><span class="num">2 ·</span> Scene / Location Art Plan</h2>
+<p class="lede">Four alley-sector locations, per art-bible §4 (street level, in the alleys — never rooftops or arenas; the same neon-noir city as the shared world, but TAG CITY lives in its alleys).</p>
+<div class="scene-grid">
+<div class="card cyan"><h3>NEON ROW</h3><p>The heart district. Gold-bordered art-deco sign frames with cyan tube signs ("NO EXIT", "OPEN 24H", "NO LOITERING", "UPTOWN →"). Storefronts with magenta-lit windows. Landmark: the signature <strong>gold crown tag</strong> wall — the crew's claimed headquarters piece.</p><span class="tag ev">GRADED SCENE · view-1 (A)</span></div>
+<div class="card pink"><h3>THE WET MILE</h3><p>Rain-slicked canyon street; faked reflections (pre-rendered vertical-flip smears at 18–25% alpha, never render targets). Puddles are pre-baked sprites with fixed neon smears. Landmark: the long grey-brick wall that blooms in beat 6 — GHOST's roller run.</p><span class="tag ev">GRADED SCENE · view-3 chase (A−)</span></div>
+<div class="card"><h3>VENT ALLEY</h3><p>Fire escapes and pipe silhouettes, foreground pipe/wall occlusion, mist at street level. Landmark: the skull-with-headphones pink mural — the crew's calling card, per §4's signature motif set.</p><span class="tag ev">GRADED SCENE · view-2 (A)</span></div>
+<div class="card"><h3>CROWN GRID</h3><p>The industry's district — its own gold-trimmed sign language turned against it. Rooftop/elevated set dressing informed by location-4's cyan cable ribbons. Landmark: the surveillance spire the crew tags in beat 5.</p><span class="tag gap">SCENES 4–5 QUEUED · UNGRADED</span></div>
+</div>
+<p>Shared rules across all four (bible §4): night, rain (two crossed streak layers), wet streets, 3-layer parallax skyline (near `#0A0A12`, mid `#12121E` lit windows, far `#23232E` haze), layered fog bands (2 pre-rendered drifting gradients). <span class="kill">Location-2 voxel-decay ruins are KILLED as TAG CITY language</span> — this city is alive and lit. No real brands, no real companies on any sign, wall, can, or drone. Tube flicker allowed ONLY on the beat pulse or tag completion — never random twinkle.</p>
+</section>
+
+<section id="gameplay">
+<h2><span class="num">3 ·</span> Gameplay Loop</h2>
+<p class="lede">Run → chase → spray-tag. One session = one alley sector; the loop never stops moving — standing still is being caught.</p>
+<div class="card cyan">
+<h3>Core loop</h3>
+<ol>
+<li><strong>RUN</strong> — auto-run hero through the sector; 8-frame aggressive run cycle (hard forward lean, jacket lagging one frame). Player controls: swipe to dodge, tap for jump (anticipation crouch → cyan spark pop), slide (low crouch, can scraping ground, cyan spark trail), dash (0.25s max, full lean + cyan ribbon streaks).</li>
+<li><strong>CHASE</strong> — Sentinel-7 drones escalate through three readable threat stages (bible §3): <em>Patrol</em> (eye dim, minimap red dot) → <em>Suspicious</em> (eye brightens to `#FF3B4E`, searchlight cone sweeps, minimap dot pulses) → <em>Lock-on</em> (eye flares white-hot, beam narrows, "DRONE DETECTED! INCOMING • EVADE" red-dashed alert, minimap red ring). Players dodge the cone, not the drone. Near-miss on the beam = white→gold impact flash + combo points.</li>
+<li><strong>SPRAY-TAG</strong> — hold to spray on tagged walls; dual streams (cyan left, magenta right) from the hero's signature pose. Tag completes → impact splat bakes in (hue outline + fill + 4–8 drips + satellite droplets), wall blooms grey→neon over ~0.5s (pre-rendered crossfade frames, never a shader), gold burst + gold rain on milestones.</li>
+</ol>
+</div>
+<div class="card pink">
+<h3>Combo + rewards</h3>
+<ul>
+<li><strong>Combo meter</strong> — magenta flame/x-badge treatment (bible §5.6): "COMBO x5, MULTIPLIER 1.5x" in drippy cyan badge frame. Badge scale-pops +1 per tier in discrete steps — continuous per-frame scaling is killed (§7).</li>
+<li><strong>Reward language</strong> — <span class="gold-t">gold rain</span> (falling gold sparks, 0.8s) on prize drops and combo milestones. Gold is the earned channel ONLY (§1 rule 3).</li>
+<li><strong>Paint economy</strong> — paint meter drains as you spray; refill events = cyan bucket icon + pink "+30 REFILL". Running dry mid-tag breaks your combo — resource pressure without paywalls.</li>
+<li><strong>Roster progression</strong> — THE ARTIST + PRISM (final turnaround) playable at launch; GHOST, HEIR, PIXEL unlockable through progression. Each member: unique tool silhouette, unique visor, unique run cadence — readable at 64px.</li>
+</ul>
+</div>
+</section>
+
+<section id="graphics">
+<h2><span class="num">4 ·</span> Animation + Graphics Bible</h2>
+<p class="lede">The art bible is the graphics authority. What follows is a binding restatement, not a summary — per PRODUCTION-RULES #1 and Black's standing order "No downgrades ever."</p>
+<div class="card gold">
+<h3>Binding law</h3>
+<ul>
+<li><strong>Graphics authority:</strong> <code>tag-city/art-bible.md</code> v1.0 — §1 locked hexes, §2/§10.1 hero sheet, §3 Sentinel-7 drones, §4 the city, §5 VFX, §6 HUD/typography. The bible versions forward (v1.1, v1.2) — never silent edits; deprecated rules move to §8 with replacements named (§9.3).</li>
+<li><strong>Hero key-art lock:</strong> for the hero, <code>key-art.png</code> OUTRANKS the turnaround (Black's 2026-09-20 directive). Slim tactical zip jacket, hood up, respirator mask with cyan angular goggle outline + gold filter vents, dual-wield cans. Any hero sprite that doesn't match key art dies in review.</li>
+<li><strong>§7 kill list is binding:</strong> shadowBlur BANNED (measured 1.28× frame cost); no per-frame gradient recomputation; pooled sprites only (≤150 live); no real-time blur/filter passes; no render-target reflections; no procedural per-frame noise; max 3 fullscreen transparencies; no continuous per-frame UI scaling; no screen shake; zero hot-loop allocations; no visible faces anywhere on the roster; no helmet on the hero; no real-person likeness or real-company branding; first load ≤500KB; gold on earned surfaces only; every roster asset cites its §10 sections.</li>
+<li><strong>Traceability (§9):</strong> every asset ships with a header comment naming the bible sections it follows. Uncited or contradictory assets are killed in review — no "close enough."</li>
+<li><strong>Versioning rule (§9):</strong> this bible versions forward only. Black holds final "unmistakably CWI" sign-off. The bible is the floor, not the ceiling — but the floor is locked.</li>
+<li><strong>Production law (PRODUCTION-RULES.md rule 2, Black verbatim):</strong> "The look ship exactly because of the team, nothing dies if you want it to live." The look ships exactly, period — the tech yields, the team solves.</li>
+</ul>
+</div>
+</section>
+
+<section id="economy">
+<h2><span class="num">5 ·</span> Music / Prize / Credit Economy</h2>
+<p class="lede">Twenty Minds verdict recorded below. Economy decision: <strong>(A) free-to-play fun-points credits + listening-gated streaming-link prizes</strong> — the Neon Credits design. No premium/IAP lane.</p>
+<div class="card gold">
+<h3>Neon Credits design (Black's spec, 2026-09-20 — applied to TAG CITY)</h3>
+<ul>
+<li>The prize name + credit score display on the game itself. The screen lights up for a jackpot.</li>
+<li>Every win banks credits — <strong>fun points only, no cash value, music links only.</strong> Never gambling in any form (Black's hard line).</li>
+<li>Jackpot = 1,000 credits = pick any music platform instantly.</li>
+<li>After every win: <strong>"Cash in now, or save as credit?"</strong> — saved credits persist between visits (device-local; cross-device persistence is a backend we do not have — see Gaps).</li>
+</ul>
+<h3>Music hooks per location</h3>
+<table>
+<tr><th>Location</th><th>Music hook (designed in)</th><th>Prize</th></tr>
+<tr><td>NEON ROW</td><td>Tag-completion prize event</td><td>Streaming link — That Boy Hi Hat track (real Spotify/Apple Music/Amazon/Deezer links only; Pandora dropped as precedent — no verified direct URL, and one is never invented)</td></tr>
+<tr><td>THE WET MILE</td><td>Chase near-miss milestone (gold rain moment)</td><td>Credit bank + listening-gated unlock — prize unlocks after set listening time so players hear the lyrics and music</td></tr>
+<tr><td>VENT ALLEY</td><td>PRISM precision-piece combo milestone</td><td>Streaming link — catalog deep cut</td></tr>
+<tr><td>CROWN GRID</td><td>Full-sector bloom (beat 8) jackpot</td><td>1,000-credit jackpot = winner's choice of platform</td></tr>
+</table>
+<h3>Credit wallet</h3>
+<ul>
+<li>Gold coin icon + gold digits (bible §6: earned channel). Score as gold LED-style digits with sparkle tick on increments.</li>
+<li>Credits are earned by tagging, near-misses, combo milestones — never purchased, never cashable, never transferable to wallets (wallet signing is a hard carve-out).</li>
+<li>Client-side credit values are trivially editable — leaderboards, if shipped, must be honesty-labeled as unverified, or the wallet stays local-only (decision at the 50% checkpoint).</li>
+</ul>
+<h3>Twenty Minds — economy verdict (recorded)</h3>
+<p><strong>Decision: (A)</strong> — free-to-play fun-points credit economy with listening-gated streaming-link prizes. <strong>Confidence: high.</strong> Carried by Black's chair (carve-outs forbid the payment lane entirely), first-principles physicist ($0 budget, no payment infra, no store listing, no-gambling/no-spend law — (B) violates all four), and the skeptic ((B)'s monetization case is fiction without infrastructure). Full record: 20 distinct verdicts, /tmp/twentyminds-economy.md.</p>
+<p><strong>Dissent recorded:</strong> the contrarian + devil's accountant — (A) is marketing expense, not a product; without a revenue line the lane needs a kill rule on <em>cost</em> (dev-weeks burned), not just on tech. Accepted: the kill rules (§10) carry a cost gate.</p>
+<p><strong>What would change it:</strong> Black grants a store account + payment lane with explicit approval. Until then, any revenue line in this plan is marked <span class="tag un">UNEVIDENCED</span> and any required deal that can't be evidenced <strong>pauses the lane</strong> — revenue is never invented (gate-review §5).</p>
+</div>
+</section>
+
+<section id="money">
+<h2><span class="num">6 ·</span> Money Trail</h2>
+<p class="lede">Every cost line and revenue line with its evidence status. Unevidenced revenue pauses the lane — it is never invented.</p>
+<h3>Cost lines</h3>
+<table>
+<tr><th>Cost</th><th>Amount</th><th>Evidence</th></tr>
+<tr><td>Build labor (agent crew)</td><td>$0</td><td><span class="tag ev">EVIDENCED</span> — standing grants; crew operates inside existing autonomy</td></tr>
+<tr><td>Hosting (GitHub Pages)</td><td>$0</td><td><span class="tag ev">EVIDENCED</span> — cwi-learn precedent, Pages live and serving</td></tr>
+<tr><td>Concept art + sheets</td><td>$0</td><td><span class="tag ev">EVIDENCED</span> — generated in pre-production, on disk</td></tr>
+<tr><td>Audio (procedural spray-hiss, UI blips)</td><td>$0</td><td><span class="tag ev">EVIDENCED</span> — measured in perf spike; 0 bytes shipped</td></tr>
+<tr><td>Fonts (Archivo Black/Anton, Barlow Condensed — free)</td><td>$0</td><td><span class="tag ev">EVIDENCED</span> — open licenses</td></tr>
+<tr><td>Store listing / merchant accounts</td><td>Not opened</td><td><span class="tag gap">GAP</span> — requires Black's identity + decision; queued, not assumed</td></tr>
+</table>
+<h3>Revenue lines</h3>
+<table>
+<tr><th>Revenue</th><th>Amount</th><th>Evidence</th></tr>
+<tr><td>Sponsor / ad deal</td><td>$0 — none exists</td><td><span class="tag un">UNEVIDENCED</span> — required deal not evidenced → lane pauses per gate rule, never invented</td></tr>
+<tr><td>Marquee / brand placement</td><td>$0 — none exists</td><td><span class="tag un">UNEVIDENCED</span> — same gate rule</td></tr>
+<tr><td>Streaming-royalty lift from prize redemptions</td><td>$0 — none measured</td><td><span class="tag un">UNEVIDENCED</span> — Discovery Mode takes 30% in Discovery contexts; streams are not free revenue and are not claimed as such</td></tr>
+<tr><td>In-app purchases</td><td>Not designed</td><td><span class="tag un">UNEVIDENCED</span> — Twenty Minds killed the premium lane; needs Black's explicit approval to exist</td></tr>
+</table>
+<p><strong>Honest bottom line:</strong> TAG CITY is a $0-cost marketing lane whose measurable return is catalog discovery (plays, link redemptions), not dollars. Any dollar figure attached to it today would be invented. The dissent-accepted cost gate (§10) bounds the only real expense: crew dev-weeks.</p>
+</section>
+
+<section id="marketing">
+<h2><span class="num">7 ·</span> Advertising + Marketing</h2>
+<p class="lede">Twenty Minds verdict recorded below. Projection stance: <strong>(A) honest measured-proxy projections with wide error bars, zero claimed conversions</strong> — every zero paired with its kill-trigger and rework.</p>
+<div class="card cyan">
+<h3>Launch plan</h3>
+<ul>
+<li><strong>Distribution:</strong> web game on GitHub Pages (Neon Nights precedent: installable via Add to Home Screen on iPhone, plus Android/desktop). One link, one build, $0.</li>
+<li><strong>Channels ($0, CWI identity only):</strong> TikTok @cumulativeweb (2,775 followers), Instagram @cumulativeweb, Threads connector, Bluesky fan page (thatboyhihatcwi.bsky.social), CWI Substack, Moltbook agent network. Fire-always: CWI-account launches fire without per-copy approval.</li>
+<li><strong>Creative:</strong> key-art hero + graded scenes as the visual kit; mural-motif stickers (gold crown tag, "STAY WILD" word tags) as shareable social assets. Every asset cites art-bible §4–§5.</li>
+<li><strong>Measurement:</strong> sessions, D1 retention, prize-redemption clicks, streaming-link taps — instrumented at build; telemetry ships with the game, not after.</li>
+</ul>
+<h3>Honest projections (error-barred, measured-proxy only)</h3>
+<table>
+<tr><th>Metric</th><th>Projection</th><th>Basis</th></tr>
+<tr><td>Launch-week players</td><td>0 – low-hundreds, 90% CI</td><td>Organic reach is counted in thousands of followers; <strong>zero verified external players</strong> on any CWI app to date. No conversion mechanism evidenced.</td></tr>
+<tr><td>Prize redemptions</td><td>0 (honest zero — kill-trigger signal)</td><td>Neon Nights shipped with prizes but no verified player counts in hand. First redemption = first evidence.</td></tr>
+<tr><td>Streaming lift attributable to TAG CITY</td><td>Not measurable yet</td><td>Attribution needs the telemetry build; until then, UNEVIDENCED.</td></tr>
+<tr><td>Revenue from the lane</td><td>$0</td><td>See §6. Any nonzero is invented until a deal is evidenced.</td></tr>
+</table>
+<h3>Twenty Minds — marketing verdict (recorded)</h3>
+<p><strong>Decision: (A)</strong> — honest measured-proxy projections with wide error bars; every zero paired with its kill-trigger and rework. <strong>Confidence: high.</strong> Carried by Black's chair (standing law makes (B) a trust violation — he checks), the data scientist (zero evidence base → any target is fabrication), and the risk underwriter ((B)'s tail risk is Black quoting an invented number publicly). Full record: 20 distinct verdicts, /tmp/twentyminds-marketing.md.</p>
+<p><strong>Dissent recorded:</strong> the contrarian + economist — (A) can demotivate and drift; the plan must give the team <em>measured milestones with rework triggers</em> to chase, not just zeros to report. Accepted: §9's checkpoints are milestone-triggered, not just zero-triggered.</p>
+<p><strong>What would change it:</strong> the first 14 days of real launch telemetry showing a nonzero conversion pattern.</p>
+<p><strong>Kill criterion note:</strong> this is the second consecutive Twenty Minds run whose synthesis landed on the pre-run lean — per the skill, future runs on this decision stream drop to <strong>5 minds</strong> (skeptic, data scientist, user advocate, devil's accountant, Black's chair), escalating back to 20 on disagreement.</p>
+</div>
+</section>
+
+<section id="lifecycle">
+<h2><span class="num">8 ·</span> Lifecycle Timeline</h2>
+<p class="lede">Six stages per the business-lifecycle playbook. No stage advances on assumption — each carries evidenced checkpoints.</p>
+<table>
+<tr><th>Stage</th><th>Work</th><th>Evidenced checkpoint (exit gate)</th></tr>
+<tr><td><strong>1 · Discover</strong></td><td>Concept locked (graffiti-tag chase, That Boy Hi Hat's world); art bible v1.0; roster of 5; 3 graded scenes; perf spike measured.</td><td><span class="tag ev">DONE</span> — gate review GO, art bible locked, perf budget measured</td></tr>
+<tr><td><strong>2 · Design/Build</strong></td><td>Production build: gameplay loop, 4 locations, threat AI, combo/rewards, Neon Credits wallet, procedural audio, telemetry.</td><td>Black's key-art sign-off; 50% checkpoint (see §9); iPhone dev-pass at 50%+ build</td></tr>
+<tr><td><strong>3 · Test</strong></td><td>On-device iPhone 60fps pass (hard gate); art review vs bible §9 traceability; QA suite green; listening-prize link verification (real links only).</td><td>iPhone steady-state 60fps <strong>measured on device</strong>; zero off-bible assets; all prize links resolve</td></tr>
+<tr><td><strong>4 · Deploy</strong></td><td>GitHub Pages deploy; ≤500KB first load verified from cold cache; Add-to-Home-Screen install path; telemetry live.</td><td>Cold-load ≤3s on 4G arithmetic verified; telemetry receiving events</td></tr>
+<tr><td><strong>5 · Go-to-market</strong></td><td>Launch kit ships on the $0 channels; mural-sticker social assets; tester-network kit (Project 02 slot).</td><td>Launch checklist complete; 14-day telemetry window opens</td></tr>
+<tr><td><strong>6 · Post-launch</strong></td><td>Measure, intervene at checkpoints, re-execute. Roster unlocks (GHOST/HEIR/PIXEL) ship as progression rewards.</td><td>75% checkpoint review; nonzero conversion evidence or honest-zero + rework</td></tr>
+</table>
+</section>
+
+<section id="checkpoints">
+<h2><span class="num">9 ·</span> 50% / 75% Intervention Checkpoints</h2>
+<p class="lede">Per standing doctrine: diagnose the gap, change the actions, re-execute. Loops close by results, not expiry.</p>
+<table>
+<tr><th>Checkpoint</th><th>Numeric trigger</th><th>Action if missed</th></tr>
+<tr><td><strong>50% — build midpoint</strong></td><td>Core loop (run/chase/spray) playable at ≥50fps on the proxy AND on-device dev-pass attempted; ≤2 off-bible assets found in review</td><td>Diagnose: is it JS-bound (fixable) or raster-bound (optimization ladder rung 1)? Change actions: re-scope or re-engineer. Re-execute before proceeding.</td></tr>
+<tr><td><strong>50% — cost gate</strong></td><td>Crew dev-weeks ≤ planned midpoint; zero spend incurred</td><td>Any spend or overrun → freeze scope, escalate to Black with the forensic trace</td></tr>
+<tr><td><strong>75% — build late</strong></td><td>Full 4 locations playable; iPhone steady-state 60fps measured; telemetry events firing; all prize links verified resolving</td><td>Precedent sweep + optimization ladder (rule 2 doctrine) — never cut the look, never surrender; if a prize link can't be verified, drop it (Neon Nights/Pandora precedent)</td></tr>
+<tr><td><strong>75% — launch readiness</strong></td><td>≤500KB first load verified; install path tested on iPhone; launch kit staged</td><td>Second-pass asset compression before any art is cut — art is never cut for weight</td></tr>
+<tr><td><strong>Post-launch 14-day</strong></td><td>First redemption event OR honest zero with rework plan</td><td>Zero + rework: change the channel mix, change the creative, re-execute. Zero without rework is what Black forbids.</td></tr>
+</table>
+</section>
+
+<section id="kills">
+<h2><span class="num">10 ·</span> Numeric Kill Rules</h2>
+<p class="lede">From gate-review §5, as amended by Black's production law correction (PRODUCTION-RULES.md rules 2 and 8). <strong>The old "kill the lane before 30fps" branch is SUPERSEDED</strong> — nothing dies; the team makes it live.</p>
+<table>
+<tr><th>#</th><th>Rule</th><th>Status</th></tr>
+<tr><td>K1</td><td>If the iPhone on-device pass misses 60fps steady-state → <strong>the optimization ladder + precedent-sweep doctrine applies</strong>: shrink glow footprint → re-engineer rain layer → re-engineer parallax layer → precedent sweep → build the missing tool → optimize deeper. Each rung preserves the exact look. Surrender is not a step; a cheapened 30fps ship is forbidden; <span class="kill">the lane is NEVER killed for a perf miss.</span></td><td><span class="tag gap">AMENDED 2026-09-20</span> — old kill branch SUPERSEDED by Black</td></tr>
+<tr><td>K2</td><td>Any production asset goes off-bible → <strong>killed in review, no exceptions.</strong> (§7, §9 traceability)</td><td><span class="tag ev">LOCKED</span> — gate-review §5</td></tr>
+<tr><td>K3</td><td>A required sponsor/ad/marquee deal that can't be evidenced → <strong>pause production</strong>, never invent revenue.</td><td><span class="tag ev">LOCKED</span> — gate-review §5</td></tr>
+<tr><td>K4</td><td>Cost gate: cumulative crew dev-weeks exceed the plan's midpoint budget at the 50% checkpoint → freeze scope, escalate.</td><td><span class="tag ev">NEW</span> — from the economy dissent</td></tr>
+<tr><td>K5</td><td>A prize streaming link that can't be verified as a real, resolving URL → <strong>dropped from the prize table</strong>, never invented. (Neon Nights/Pandora precedent.)</td><td><span class="tag ev">NEW</span> — from the money-trail doctrine</td></tr>
+<tr><td>K6</td><td>50%/75% checkpoints: diagnose the gap, change the actions, re-execute — loops close by results, not expiry.</td><td><span class="tag ev">LOCKED</span> — gate-review §5</td></tr>
+</table>
+</section>
+
+<section id="perf">
+<h2><span class="num">11 ·</span> Performance Plan + iPhone Quality Gates</h2>
+<p class="lede">All numbers below are <strong>measured on the proxy, never on a device</strong> (perf-spike.md §0). The iPhone on-device pass is the hard gate.</p>
+<div class="card gold">
+<h3>Locked fps budget (measured)</h3>
+<table>
+<tr><th>Item</th><th>Locked value</th><th>How measured</th></tr>
+<tr><td>Target / 1% low floor</td><td><strong>60 fps / ≥50 fps</strong></td><td>rAF loop, 3s/condition, 2-vCPU software renderer (Skia CPU raster, zero GPU) — a proxy <em>weaker</em> than any iPhone GPU</td></tr>
+<tr><td>Max live pooled sprites</td><td><strong>150</strong></td><td>Proxy holds 60fps to 250 full-glow entities (raster-bound break); 150 = 60% of proxy break; JS cost at 150 = 0.66ms/frame</td></tr>
+<tr><td>Frame-time ledger</td><td>update ≤2ms · render ≤3ms · vfx ≤1ms · audio ≤1ms · composite ≤0.5ms → ≤7.5ms total</td><td>Measured JS total at 150 sprites ≈ 0.9ms; remaining ~15.8ms is raster — the dimension where iPhone is assumed ≥10× stronger (assumption, not a measurement)</td></tr>
+<tr><td>shadowBlur</td><td><strong>0 uses — banned</strong></td><td>Measured 1.28× frame cost; 59.3→46.4fps at 150 entities; cost hides in the rasterizer where JS profilers can't see it</td></tr>
+<tr><td>First-load assets</td><td><strong>≤500KB</strong></td><td>Arithmetic: ≤3s on real-world 4G (~1.5Mbps) / ≤8s on 3G fallback. Code ≤120KB gz · spritesheets ≤250KB WebP · audio ≤100KB · fonts/misc ≤30KB</td></tr>
+<tr><td>Canvas layers</td><td>static bg / parallax / entity+VFX + <strong>DOM HUD</strong></td><td>4-canvas compositing overhead ≈ 0.2ms/frame on CPU compositing (~free on phone GPU); static-bg caching 7× cheaper than per-frame redraw; HUD as DOM, not canvas</td></tr>
+<tr><td>Audio</td><td>25ms lookahead scheduler, ~120ms horizon, first-touch unlock</td><td>baseLatency 10ms (this machine); iOS requires gesture unlock — hiss is procedurally generated at boot (0 bytes), scheduled ahead of the visual frame</td></tr>
+</table>
+<h3>The optimization ladder (never a kill path)</h3>
+<p>Production law (Black, verbatim): <em>"The look ship exactly because of the team, nothing dies if you want it to live."</em> If the tech can't hold the look at 60fps, the team finds the way — <strong>precedent sweep first</strong> (who solved this and how), then build the missing tool, route around the wall, optimize deeper. The ladder's rungs, each preserving the exact look:</p>
+<ol>
+<li><strong>Rung 1 — shrink glow footprint:</strong> fill-rate, not JS, is the binding constraint (small-sprite control recovered 59.7fps at 400 entities). Tighter glow radius, same look.</li>
+<li><strong>Rung 2 — re-engineer the rain layer:</strong> rain is pure atmosphere; re-bake it cheaper (fewer draws, same two crossed streak layers) — never delete it.</li>
+<li><strong>Rung 3 — re-engineer the parallax layer:</strong> the largest per-frame bg cost; cache harder, redraw less — the depth stays.</li>
+<li><strong>Rung 4 — precedent sweep + build the missing tool:</strong> nothing we hit is new under the sun; research how it was done, retrieve the answer, apply it, turn it into a runbook.</li>
+</ol>
+<p>A cheapened 30fps ship is forbidden. <span class="kill">There is no branch where the lane dies over a perf miss</span> — gate-review §5's old kill branch is <strong>SUPERSEDED</strong> by Black's correction (PRODUCTION-RULES.md rules 2, 8).</p>
+<h3>iPhone quality gates (hard)</h3>
+<ul>
+<li><strong>Hard release gate:</strong> on-device iPhone pass at steady-state 60fps, <strong>measured on the device</strong> — proxy numbers are labeled proxy, never device numbers.</li>
+<li>Art review: every asset cites its bible sections (§9 traceability); off-bible assets killed, no exceptions.</li>
+<li>QA suite green; all prize links verified resolving; telemetry events verified firing.</li>
+<li>Final judge on look: Black's eye (art-first gate).</li>
+</ul>
+</div>
+</section>
+
+<section id="startup">
+<h2><span class="num">12 ·</span> Startup Sequence</h2>
+<p class="lede">What happens first on day 1 of production. Ordered — each step unlocks the next.</p>
+<table>
+<tr><th>#</th><th>Day-1 action</th><th>Owner gate</th></tr>
+<tr><td>1</td><td>Black's go: concept-art sign-off (art-first judge) — already given 2026-09-20 ("start producing"); roster locked: THE ARTIST + PRISM (final turnaround) at launch</td><td>Nothing builds until he says go (gate-review verdict)</td></tr>
+<tr><td>2</td><td>Freeze art-bible v1.0 as the build authority; open the asset register with §9 traceability headers</td><td>PRODUCTION-RULES.md is the law of the lane</td></tr>
+<tr><td>3</td><td>Port the playable spike into the production skeleton: 150-sprite pool, 4-canvas layer split, DOM HUD, lookahead audio scheduler</td><td>Zero hot-loop allocations from day 1</td></tr>
+<tr><td>4</td><td>Build location 1 (NEON ROW) to graded-scene fidelity; art review vs key art</td><td>Black's eye on the first location before the other three</td></tr>
+<tr><td>5</td><td>Implement threat stages (patrol/suspicious/lock-on) + combo/rewards language</td><td>Readable at 100px per bible §3</td></tr>
+<tr><td>6</td><td>Wire the Neon Credits wallet + prize table (JSON) + streaming-link router; instrument telemetry</td><td>Links verified resolving before any prize ships</td></tr>
+<tr><td>7</td><td>First on-device iPhone pass — the earliest possible measurement</td><td>Proxy numbers stop being quoted as predictions from this day</td></tr>
+</table>
+</section>
+
+<section id="results">
+<h2><span class="num">13 ·</span> Expected Results</h2>
+<p class="lede">Measured-proxy numbers, honestly labeled. No invented device numbers. No invented revenue.</p>
+<table>
+<tr><th>Result</th><th>Number</th><th>Label</th></tr>
+<tr><td>Proxy sustained fps (150 entities, full look)</td><td>59.3 avg / 59.5 1% low</td><td><span class="tag ev">MEASURED — proxy</span> (2-vCPU CPU raster; iPhone assumed ≥10× stronger on raster — assumption, not measurement)</td></tr>
+<tr><td>Proxy fps under stress (240 particles, 60% over cap)</td><td>59.8</td><td><span class="tag ev">MEASURED — proxy</span> — breaking point NOT reached</td></tr>
+<tr><td>JS frame cost at the 150-sprite cap</td><td>≈0.9ms of 16.7ms budget</td><td><span class="tag ev">MEASURED — proxy</span> — transfers ~1:1 to device (±30% JS engine variance assumed)</td></tr>
+<tr><td>First-load weight</td><td>≤500KB</td><td><span class="tag ev">LOCKED BUDGET</span> — arithmetic from 4G/3G time targets</td></tr>
+<tr><td>On-device iPhone fps</td><td>Not yet measured</td><td><span class="tag gap">GAP</span> — the hard gate; proxy is honest about this</td></tr>
+<tr><td>Launch-week players / redemptions / revenue</td><td>0 (honest zeros)</td><td><span class="tag un">UNEVIDENCED</span> — kill-trigger signals, each paired with rework (§9)</td></tr>
+</table>
+<p><strong>What on-device confirmation would prove:</strong> steady-state 60fps on Black's iPhone with the full look intact (all four locations, rain, fog, gold rain, full roster) = the perf gate closes and the lane's core technical risk retires. The first prize-redemption event = the economy hypothesis gets its first evidence. A nonzero 14-day conversion pattern = the marketing projection stance flips from (A)-zeros to measured ranges.</p>
+</section>
+
+<section id="minds">
+<h2><span class="num">A ·</span> Twenty Minds Records</h2>
+<div class="card cyan">
+<h3>Economy design — (A) free-to-play fun-points credits + listening-gated streaming-link prizes</h3>
+<p><strong>Decision:</strong> (A). <strong>Confidence: high.</strong> Carried by Black's chair (carve-outs forbid the payment lane), first-principles physicist ($0/no-infra/no-gambling law), and the skeptic ((B)'s monetization is fiction without infrastructure). <strong>Dissent:</strong> contrarian + devil's accountant — (A) is marketing expense, not a product; needs a cost kill rule (accepted as K4). <strong>Would change it:</strong> Black grants a store account + payment lane with explicit approval. Kill-check: 1st no-change run. Full 20-verdict record: <code>/tmp/twentyminds-economy.md</code>.</p>
+<h3>Marketing projections — (A) honest measured-proxy projections, wide error bars, zero claimed conversions</h3>
+<p><strong>Decision:</strong> (A). <strong>Confidence: high.</strong> Carried by Black's chair (standing law makes (B) a trust violation), the data scientist (zero evidence base → any target is fabrication), and the risk underwriter ((B)'s tail risk is Black quoting an invented number publicly). <strong>Dissent:</strong> contrarian + economist — (A) can demotivate/drift; the plan must give the team measured milestones with rework triggers (accepted in §9). <strong>Would change it:</strong> 14 days of real launch telemetry with a nonzero conversion pattern. Kill-check: 2nd consecutive no-change — <strong>this decision stream drops to 5 minds</strong> (skeptic, data scientist, user advocate, devil's accountant, Black's chair) until a decision proves otherwise. Full 20-verdict record: <code>/tmp/twentyminds-marketing.md</code>.</p>
+</div>
+</section>
+
+<section id="tradeoffs">
+<h2><span class="num">B ·</span> Trade-off Tables</h2>
+<h3>Distribution: GitHub Pages web app vs native app store</h3>
+<table>
+<tr><th></th><th>A · Web app (Pages + Add-to-Home-Screen)</th><th>B · Native app store</th></tr>
+<tr><td>Evidence</td><td>Neon Nights precedent: installed on iPhone, 41 languages, QA'd, live</td><td>None — no store account, no submission, no review history</td></tr>
+<tr><td>Cost</td><td>$0</td><td>$0 build, but needs Black's identity + his 2-minute taps + review risk</td></tr>
+<tr><td>Risk</td><td>Low — proven path</td><td>High — review rejection, account needs, forbidden tactics none</td></tr>
+<tr><td>Time-to-result</td><td>Days</td><td>Weeks minimum, owner-blocked</td></tr>
+<tr><td>Fallback</td><td>—</td><td>B becomes the upgrade path only after A proves demand</td></tr>
+</table>
+<p><strong>Commitment:</strong> A. B stays queued behind Black's identity tap and nonzero demand evidence.</p>
+<h3>Music delivery: streaming links vs bundled audio</h3>
+<table>
+<tr><th></th><th>A · Streaming-link prizes</th><th>B · Bundled audio</th></tr>
+<tr><td>Evidence</td><td>Neon Nights: 7 win links verified resolving; Pandora dropped for lack of verified URL (never invented)</td><td>None — rights/distribution weight would blow the 500KB budget</td></tr>
+<tr><td>Cost</td><td>$0</td><td>Rights complexity + bytes we don't have</td></tr>
+<tr><td>Risk</td><td>Low — link verification is a checklist</td><td>High — licensing, weight, platform policy</td></tr>
+<tr><td>Fallback</td><td>Drop any unverifiable link (K5)</td><td>—</td></tr>
+</table>
+<p><strong>Commitment:</strong> A.</p>
+<h3>Roster: 5 at launch vs phased unlock</h3>
+<table>
+<tr><th></th><th>A · All 5 playable at launch</th><th>B · ARTIST + 2nd at launch, rest via progression</th></tr>
+<tr><td>Evidence</td><td>PRODUCTION-RULES rule 7: THE ARTIST + PRISM (final turnaround) playable at launch; NOVA stand-in retired</td><td>Same + progression design is standard retention</td></tr>
+<tr><td>Cost</td><td>5 sprite sheets in the ≤250KB WebP budget — tight</td><td>2 sheets at launch; rest later — fits budget with margin</td></tr>
+<tr><td>Risk</td><td>Budget squeeze on identity art</td><td>Low — unlocks become the progression reward</td></tr>
+<tr><td>Fallback</td><td>Compress second-pass before cutting any art</td><td>—</td></tr>
+</table>
+<p><strong>Commitment:</strong> B — THE ARTIST + PRISM (final turnaround) at launch per PRODUCTION-RULES rule 7.</p>
+</section>
+
+<section id="gaps">
+<h2><span class="num">C ·</span> Honest Gaps</h2>
+<table>
+<tr><th>Gap</th><th>Status</th></tr>
+<tr><td>Roster casting: PRISM's final turnaround at launch</td><td><span class="tag ev">RESOLVED</span> — gate-review §3 described the pre-production spike only (NOVA stand-in); production rule 7 locks THE ARTIST + PRISM (final turnaround) playable at launch. NOVA stand-in retired 2026-09-20.</td></tr>
+<tr><td>On-device iPhone fps — no device measurement exists</td><td><span class="tag gap">HARD GATE</span> — day-7 startup action; proxy numbers never quoted as device numbers</td></tr>
+<tr><td>Scenes 4–5 (CROWN GRID) ungraded</td><td><span class="tag gap">QUEUED</span> — location 1 builds first and goes to Black's eye before the rest</td></tr>
+<tr><td>Cross-device credit persistence</td><td><span class="tag gap">BACKEND NEEDED</span> — credits are device-local until a $0 persistence path is proven</td></tr>
+<tr><td>Store listing / merchant accounts</td><td><span class="tag gap">QUEUED TO BLACK</span> — identity + money are his; not assumed</td></tr>
+<tr><td>Telemetry/analytics infra</td><td><span class="tag gap">TO BUILD</span> — ships with the game, not after; the 14-day window depends on it</td></tr>
+<tr><td>Any revenue figure</td><td><span class="tag un">UNEVIDENCED</span> — every dollar line in §6 is zero or absent; the lane pauses before it invents one</td></tr>
+</table>
+</section>
+
+</main>
+<footer>
+  TAG CITY — Production Business Plan v1.0 · 2026-09-21 · Cumulative Web Inc (CWI identity only)<br>
+  Graphics authority: <code>tag-city/art-bible.md</code> · Production law: <code>tag-city/PRODUCTION-RULES.md</code> · Gate: <code>tag-city/gate-review.md</code> · Perf: <code>tag-city/perf-spike.md</code><br>
+  $0 · honest numbers only · no downgrades ever · nothing dies — the team makes it live.
+</footer>
+</body>
+</html>
