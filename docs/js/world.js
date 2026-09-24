@@ -173,6 +173,11 @@ export class World {
       const im = new THREE.InstancedMesh(this.towerGeo, mat, SEG_COUNT * 12);
       im.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
       im.frustumCulled = false;
+      // park every instance far underground at zero scale until a segment claims it
+      const park = new THREE.Matrix4().compose(
+        new THREE.Vector3(0, -500, 0), new THREE.Quaternion(), new THREE.Vector3(0.001, 0.001, 0.001));
+      for (let k = 0; k < SEG_COUNT * 12; k++) im.setMatrixAt(k, park);
+      im.instanceMatrix.needsUpdate = true;
       scene.add(im);
       this.towerMeshes[d.id] = im;
     }
@@ -314,6 +319,7 @@ export class World {
         progress: 0, done: false, painted: false,
         word: MURAL_WORDS[(seg.counter + (side < 0 ? 0 : 1)) % MURAL_WORDS.length],
         z: seg.zFar - 20,
+        worldZ: mesh.position.z, worldX: mesh.position.x,
       };
       seg.walls.push(wall); this.tagWalls.push(wall);
     }
@@ -379,14 +385,22 @@ export class World {
   update(dt, speed) {
     const dz = speed * dt;
     this.distance += dz;
-    this.asphaltTex.offset.y -= dz / (SEG_LEN * 8);
-    this.streakTex.offset.y -= dz / (SEG_LEN * 8);
+    // street scroll: texture v runs toward -Z; offset must INCREASE so the
+    // pattern travels +Z with the buildings (1.0 UV = full 360m plane)
+    this.asphaltTex.offset.y += dz / 360;
+    this.streakTex.offset.y += dz / 360;
     // recycle segments
     for (const seg of this.segments) {
       seg.zFar += dz;
       seg.group.position.z += dz;
       if (seg.zFar > 34) {
-        // move to front
+        // move to front — first retire this segment's old tower slots (stale district)
+        for (const t of seg.towers) {
+          this._p.set(0, -500, 0); this._q.identity(); this._s.set(0.001, 0.001, 0.001);
+          this._m.compose(this._p, this._q, this._s);
+          t.mesh.setMatrixAt(t.slot, this._m);
+          t.mesh.instanceMatrix.needsUpdate = true;
+        }
         const shift = -SEG_COUNT * SEG_LEN;
         seg.zFar += shift; seg.group.position.z += shift;
         seg.counter = this.segCounter++;
