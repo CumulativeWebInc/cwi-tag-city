@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "TAG CITY",
+  "url": "https://cumulativewebinc.github.io/cwi-tag-city/",
+  "applicationCategory": "Game",
+  "operatingSystem": "Web",
+  "author": {
+    "@type": "Organization",
+    "name": "Cumulative Web Inc",
+    "url": "https://cumulativeweb.com/"
+  },
+  "description": "CWI flagship 3D game with THE ARTIST and PRISM modes. Premium 3D.",
+  "schema_version": "1.0.0"
+}
