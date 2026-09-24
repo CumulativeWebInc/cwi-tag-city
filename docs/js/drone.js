@@ -29,7 +29,9 @@ export function wantGap(tags, stumbling, dashing) {
   return Math.min(8.4, Math.max(2.4, w));
 }
 export function canStrike(state, distX, heroAirY, mercy, dashing) {
-  return state > 0 && distX < 48 * M && heroAirY > -70 * M && mercy <= 0 && dashing <= 0;
+  // 3D-tuned: dodge by lane change (2.4m lanes vs 2.0m reach), jump (>0.7m),
+  // or dash. heroAirY arrives as -hero.y (negative when airborne).
+  return state > 0 && distX < 36 * M && heroAirY > -0.7 && mercy <= 0 && dashing <= 0;
 }
 export function isNearMiss(state, distX, cooldown) {
   return state === 0 && distX < 85 * M && cooldown <= 0;
