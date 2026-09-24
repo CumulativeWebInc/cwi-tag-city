@@ -17,7 +17,7 @@ function streakTexture() {
 
 export class ParticlePool {
   constructor(scene, max = 600) {
-    this.max = max; this.n = 0;
+    this.max = max; this._cap = max; this.n = 0;
     this.pos = new Float32Array(max * 3);
     this.col = new Float32Array(max * 3);
     this.vel = new Float32Array(max * 3);
