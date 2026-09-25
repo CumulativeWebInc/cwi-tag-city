@@ -52,6 +52,10 @@ export async function boot() {
   scene.add(new THREE.AmbientLight(0x1A2A3A, 0.22));
   // key neon wash so the hero reads against the dark
   const key = new THREE.DirectionalLight(0x8899FF, 0.5); key.position.set(-6, 12, 8); scene.add(key);
+  // hero fill — warm wash from the camera side so the hooded figure,
+  // gold crown emblem and magenta/cyan cans read clearly from the rear cam
+  const heroFill = new THREE.DirectionalLight(0xFFF3D6, 0.55);
+  heroFill.position.set(0, 7, 12); scene.add(heroFill);
 
   const logoTex = new THREE.TextureLoader().load("textures/cwi-logo.jpg", (t) => { t.colorSpace = THREE.SRGBColorSpace; });
   const world = new World(scene, logoTex);
@@ -187,8 +191,6 @@ export async function boot() {
 
   /* ---------- main loop ---------- */
   const clock = new THREE.Clock();
-  const camPos = new THREE.Vector3(0, TUNE.camY, TUNE.camZ);
-  const camLook = new THREE.Vector3(0, TUNE.camLookY, TUNE.camLookZ);
   let fpsShow = new URLSearchParams(location.search).get("fps") === "1";
 
   function frame() {
@@ -248,13 +250,13 @@ export async function boot() {
       drone.update(dt, hero, 0, 3);
     }
     particles.update(dt);
-    // rear chase camera — damped, portrait-tuned
-    const tx = hero.x * TUNE.camXFollow;
-    camPos.x += (tx - camPos.x) * Math.min(1, dt * 5);
-    camPos.y += ((TUNE.camY + hero.y * 0.35) - camPos.y) * Math.min(1, dt * 5);
-    camera.position.set(camPos.x, camPos.y, TUNE.camZ);
-    camLook.x += (hero.x * 0.7 - camLook.x) * Math.min(1, dt * 6);
-    camera.lookAt(camLook.x, TUNE.camLookY, TUNE.camLookZ);
+    // rear chase camera — recomputed from scratch every frame. No persistent
+    // orientation state (no damped vectors, no incremental rotations), so
+    // pitch/roll can never accumulate: position = hero + rear offset,
+    // lookAt = fixed point ahead at hero height, up = +Y always.
+    camera.up.set(0, 1, 0);
+    camera.position.set(hero.x * TUNE.camXFollow, TUNE.camY + hero.y * 0.35, TUNE.camZ);
+    camera.lookAt(hero.x * 0.7, TUNE.camLookY, TUNE.camLookZ);
     renderer.render(scene, camera);
   }
 
