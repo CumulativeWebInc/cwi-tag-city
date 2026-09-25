@@ -40,6 +40,19 @@ export function stageTargets(state) {
   return state === 0 ? { beam: 0, eye: 0.25 } : state === 1 ? { beam: 0.55, eye: 0.7 } : { beam: 0.95, eye: 1.0 };
 }
 
+/* --- soft radial glow texture: round falloff, no rectangular edges --- */
+function glowTexture() {
+  const c = document.createElement("canvas"); c.width = c.height = 128;
+  const g = c.getContext("2d");
+  const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+  gr.addColorStop(0, "rgba(255,255,255,1)");
+  gr.addColorStop(0.35, "rgba(255,255,255,0.45)");
+  gr.addColorStop(1, "rgba(255,255,255,0)");
+  g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
 export class Drone {
   constructor(scene) {
     this.group = new THREE.Group();
@@ -77,7 +90,7 @@ export class Drone {
       new THREE.MeshBasicMaterial({ color: PAL.red }));
     this.eye.position.set(0, -0.05, 0.62);
     this.eyeGlow = new THREE.Sprite(new THREE.SpriteMaterial({
-      color: PAL.red, transparent: true, opacity: 0.5,
+      map: glowTexture(), color: PAL.red, transparent: true, opacity: 0.5,
       blending: THREE.AdditiveBlending, depthWrite: false,
     }));
     this.eyeGlow.scale.set(1.4, 1.4, 1); this.eyeGlow.position.copy(this.eye.position);
